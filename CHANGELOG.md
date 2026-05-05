@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.2] - 2026-05-05
+
+### Fixed
+
+- **`CostTracking` silent USD cost failure** ([#24](https://github.com/vstorm-co/pydantic-ai-shields/issues/24), [#25](https://github.com/vstorm-co/pydantic-ai-shields/pull/25)) — `_calculate_cost` was calling the removed `genai_prices.get_model_prices()` function, silently returning `None` for all costs. Now uses the current `calc_price()` API, passing `provider_id` and `model_ref` parsed from the `"provider:model"` format.
+- **Exception chain preserved in strict mode** — `PricingError` in strict mode now chains the original exception (`raise PricingError(model_name) from exc`) so the root cause (e.g. unknown model, missing dependency) is visible in tracebacks.
+
+### Added
+
+- **`PricingError(GuardrailError)`** — new exception raised when cost calculation fails in strict mode, with a `model_name` attribute identifying the failing model.
+- **`CostTracking.strict: bool`** — when `True`, raises `PricingError` on pricing failure instead of logging a warning (default: `False` for backward compatibility).
+
 ## [0.3.1] - 2026-03-31
 
 ### Changed
@@ -225,6 +237,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Full type safety with generics
 - 100% test coverage
 - Documentation with MkDocs
+
+[0.3.2]: https://github.com/vstorm-co/pydantic-ai-shields/compare/v0.3.1...v0.3.2
+
+[0.3.1]: https://github.com/vstorm-co/pydantic-ai-shields/compare/v0.3.0...v0.3.1
+
+[0.3.0]: https://github.com/vstorm-co/pydantic-ai-shields/compare/v0.2.4...v0.3.0
 
 [0.2.1]: https://github.com/vstorm-co/pydantic-ai-middleware/compare/v0.2.0...v0.2.1
 

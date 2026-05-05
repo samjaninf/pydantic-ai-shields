@@ -205,9 +205,9 @@ class CostTracking(AbstractCapability[Any]):
             usage = GenaiUsage(input_tokens=input_tokens, output_tokens=output_tokens)
             result = calc_price(usage=usage, model_ref=model_ref, provider_id=provider_id)
             return float(result.total_price)
-        except Exception:
+        except Exception as exc:
             if self.strict:
-                raise PricingError(model_name) from None
+                raise PricingError(model_name) from exc
             logger.warning("CostTracking: failed to resolve price for model '%s'", model_name)
             return None
 

@@ -424,10 +424,23 @@ class TestCostTrackingPricing:
         ):
             cap._calculate_cost("unknown:model", 1000, 500)
 
-    def test_calculate_cost_no_model_returns_none(self):
-        """After-run with no model name → cost is None."""
-        cap = CostTracking()
-        assert cap.model_name is None
+    @pytest.mark.anyio
+    async def test_after_run_skips_cost_when_no_model_name(self):
+        """_calculate_cost is never called when ctx.model.model_id is falsy and model_name is None."""
+        from unittest.mock import patch
+
+        class _NoIdModel(TestModel):
+            model_id = None  # type: ignore[assignment]
+
+        cap = CostTracking()  # model_name=None
+        agent = Agent(_NoIdModel(), capabilities=[cap])
+
+        with patch.object(cap, "_calculate_cost") as mock_calc:
+            await agent.run("Hello")
+
+        mock_calc.assert_not_called()
+        assert cap.total_cost == 0.0
+        assert cap.run_count == 1
 
 
 # ---------------------------------------------------------------------------
