@@ -1,14 +1,27 @@
-<h1 align="center">Pydantic AI Shields</h1>
 <p align="center">
-  <em>Guardrail Capabilities for Pydantic AI Agents</em>
+  <img src="assets/social-preview.png" alt="Pydantic AI Shields" width="100%">
 </p>
+
+<h1 align="center">Pydantic AI Shields</h1>
+
+<p align="center"><em>Drop-in guardrails for your AI agents.</em></p>
+
 <p align="center">
-  <a href="https://pypi.org/project/pydantic-ai-shields/"><img src="https://img.shields.io/pypi/v/pydantic-ai-shields.svg" alt="PyPI"></a>
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue" alt="Python"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
+  <a href="https://pypi.org/project/pydantic-ai-shields/"><img src="https://img.shields.io/pypi/v/pydantic-ai-shields.svg" alt="PyPI version"></a>
+  <a href="https://pepy.tech/projects/pydantic-ai-shields"><img src="https://static.pepy.tech/badge/pydantic-ai-shields/month" alt="PyPI Downloads"></a>
+  <a href="https://github.com/vstorm-co/pydantic-ai-shields/stargazers"><img src="https://img.shields.io/github/stars/vstorm-co/pydantic-ai-shields?style=flat&logo=github&color=yellow" alt="GitHub Stars"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10+-blue?logo=python&logoColor=white" alt="Python 3.10+"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  <a href="https://github.com/vstorm-co/pydantic-ai-shields/actions/workflows/ci.yml"><img src="https://github.com/vstorm-co/pydantic-ai-shields/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/pydantic/pydantic-ai"><img src="https://img.shields.io/badge/Powered%20by-Pydantic%20AI-E92063?logo=pydantic&logoColor=white" alt="Pydantic AI"></a>
 </p>
 
 ---
+
+!!! tip "Part of Pydantic Deep Agents"
+    **Pydantic AI Shields** is one library in [Pydantic Deep Agents](https://github.com/vstorm-co/pydantic-deepagents) — the open-source
+    Claude Code alternative & Python agent framework. Use it standalone, or get every
+    library wired together in a single `create_deep_agent()` call.
 
 **Pydantic AI Shields** provides ready-to-use guardrail [capabilities](https://ai.pydantic.dev/capabilities/) for [Pydantic AI](https://ai.pydantic.dev/) agents. Drop them into any agent for cost control, tool permissions, content safety, and more.
 

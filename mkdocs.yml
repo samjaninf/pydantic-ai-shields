@@ -25,6 +25,8 @@ theme:
   font:
     text: Inter
     code: JetBrains Mono
+  logo: favicon.ico
+  favicon: favicon.ico
   icon:
     repo: fontawesome/brands/github
     admonition:
